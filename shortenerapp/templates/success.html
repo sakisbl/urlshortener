@@ -3,6 +3,21 @@
 {% block title %}URL Shortener - {{ obj.url }}{% endblock title %}
 
 {% block content %}
-{{ obj.url }}<br>
-{{ request.get_host }}/{{ obj.shortcode }}
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Original URL</th>
+        <th>Short URL</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ obj.url }}</td>
+        <td><a href="http://{{ request.get_host }}/{{ obj.shortcode }}" target="_blank">http://{{ request.get_host }}/{{ obj.shortcode }}</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br>
 {% endblock content %}

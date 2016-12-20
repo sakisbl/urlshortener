@@ -1,11 +1,15 @@
 {% extends "base.html" %}
+{% load bootstrap %}
 
 {% block title %}URL Shortener - Home Page{% endblock title %}
 
 {% block content %}
-<form action="." method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <input type="submit" value="Shorten">
+<form role="form" action="." method="post">
+    <legend>Shorten your link</legend>
+    {% csrf_token %}
+    {{ form|bootstrap }}
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Shorten</button>
+    </div>
 </form>
 {% endblock content %}
